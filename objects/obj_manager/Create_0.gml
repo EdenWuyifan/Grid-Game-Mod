@@ -29,13 +29,14 @@ global.ai_choice = -1;
 global.state_deal = 0;
 global.state_reshuffle = 1;
 global.state_match = 2;
-global.state_clean_up = 3;
-global.state_shuffle = 4;
+global.state_count = 3;
+global.state_clean_up = 4;
+global.state_shuffle = 5;
 
 //here we set the game state to the state we want to start with
 global.state = global.state_deal;
 
-global.numcards = 30;
+global.numcards = 40;
 
 //these are lists
 //lists are similar to arrays
@@ -49,10 +50,21 @@ global.discard = ds_list_create();
 
 rnd = 0;
 
+
+//create the hit button
+draw_set_halign(fa_center);
+hit = instance_create_layer(room_width/2,room_height/2-50,"Instances",obj_button);
+hit.myText = "HIT ME!";
+
+fold = instance_create_layer(room_width/2,room_height/2+50,"Instances",obj_button);
+fold.myText = "FOLD";
+
+
+
 //here we're actually making our cards
 for (i=0; i<global.numcards; i++) {
    var newcard = instance_create_layer(x,y,"Instances",obj_card); //make a card
-   newcard.face_index = floor(3*i / global.numcards); //set the card's face
+   newcard.face_index = floor(10*i / global.numcards)+1; //set the card's face
 
    newcard.face_up = false; //tell the card it is not face up
    newcard.in_hand = false; //tell t he card it is not in the hand
@@ -78,6 +90,9 @@ check_timer = 0;
 clear_timer = 0;
 clear_side = 0;
 current_card = 0;
-last_y_pos = y+60;
-global.selected = noone;
-global.ai_selected = noone;
+last_y_pos = y+80;
+global.player_point = 0;
+global.ai_point = 0;
+global.add = false;
+global.player_enddraw = false;
+global.ai_enddraw = false;

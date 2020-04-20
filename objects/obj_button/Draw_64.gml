@@ -24,5 +24,9 @@ if(image_index == 1 && mouse_check_button_pressed(mb_left)){ //if we're hovering
 	}else if(myText == "EXIT"){
 		audio_play_sound(snd_lose,0,0);
 		game_end();
+	}else if(myText == "HIT ME!"){
+		global.add = true;
+	}else if(myText == "FOLD"){
+		global.player_enddraw = true;
 	}
 }
