@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 draw_set_halign(fa_left);
-draw_text_transformed_color(20,20,global.score_ai,1.25,1,0,c_white,c_white,c_white,c_white,1);
+draw_text_transformed_color(80,100,global.score_ai,1.25,1,0,c_white,c_white,c_white,c_white,1);
 
-draw_text_transformed_color(20,wh-20,global.score_player,1.25,1,0,c_white,c_white,c_white,c_white,1);
+draw_text_transformed_color(80,room_height-100,global.score_player,1.25,1,0,c_white,c_white,c_white,c_white,1);
 
 
 draw_set_halign(fa_center);
